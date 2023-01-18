@@ -1,0 +1,102 @@
+/* make the customizations */
+$theme-colors: (
+  "primary-dark": #186a83,
+  "primary-default": #3ebde4,
+  "primary-light": #a1e6fc,
+  "feedback-negative": #e43e3e,
+  "feedback-warning": #e4b63e,
+  "feedback-success": #3ee48a,
+  "feedback-infos": #5f3ee4,
+  "white": #ffffff,
+  "gray-100": #1f1d2f,
+  "gray-200": #282639,
+  "gray-300": #48465b,
+  "gray-400": #636177,
+  "gray-500": #9895b4,
+
+  "link-hover-color": #9895b4,
+);
+
+$body-bg: #1f1d2f;
+$body-color: #ffffff;
+
+.cursor-pointer {
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(0.9);
+
+    &.grow {
+      transform: scale(1.1);
+      transition: transform 0.5s;
+    }
+
+    &:active {
+      filter: brightness(0.8);
+    }
+  }
+}
+
+.semibold-40 {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 52px;
+}
+
+.semibold-24 {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.semibold-16 {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.semibold-12 {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.regular-16 {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.regular-12 {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.nav .nav-item .nav-link {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--bs-gray-500);
+}
+
+.carousel-slide {
+  .carousel-inner {
+    
+  }
+}
+
+.carousel-indicators,
+.carousel-indicators li {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* import bootstrap to set changes */
+@import "../node_modules/bootstrap/scss/bootstrap";
