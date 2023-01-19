@@ -152,7 +152,7 @@ export const Footer = () => {
 
   return (
     <footer
-      className="border-top border-gray-300 fixed-bottom bg-gray-100"
+      className="d-none d-lg-block border-top border-gray-300 fixed-bottom bg-gray-100"
       style={{ height: "112px" }}
     >
       <Container className="d-flex justify-content-between align-items-center h-100">
