@@ -1,9 +1,7 @@
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { useNavigate } from "react-router-dom";
 import { IMedia } from "models/media";
 import { usePreventDefault } from "utils/use-prevent-default";
 import { MediaCards } from "components/media-cards/media-cards";
