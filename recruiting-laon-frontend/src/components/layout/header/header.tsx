@@ -83,7 +83,7 @@ export const Header = (props: IHeaderProps) => {
         bg="light"
         expand="lg"
       >
-        <Container className="px-0 justify-content-between">
+        <Container className="justify-content-between">
           {hasLogin ? renderHeaderWithLogin() : renderHeaderWithoutLogin()}
         </Container>
       </Navbar>
