@@ -60,20 +60,11 @@ export const Movies = () => {
           movie_ranking: 6,
         },
       },
-      {
-        id: 7,
-        poster_url:
-          "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5f51f696241415.5eb2d19f8b3e1.png",
-        movie: {
-          id: 7,
-          movie_ranking: 7,
-        },
-      },
     ].sort((a, b) => a.movie.movie_ranking - b.movie.movie_ranking);
   });
 
   return (
-    <Container className="px-0" style={{ paddingTop: 56, marginBottom: 208 }}>
+    <Container style={{ paddingTop: 56, marginBottom: 208 }}>
       <h1 style={{ lineHeight: "48px" }} className="semibold-40 mb-0">
         Filmes
       </h1>

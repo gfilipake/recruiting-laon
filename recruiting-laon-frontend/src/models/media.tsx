@@ -11,13 +11,14 @@ export interface IMedia {
   title?: string;
   title_portuguese?: string;
   synopsis?: string;
+  year?: number;
   trailer_url?: string;
   poster_url?: string;
   award?: IAward[];
   actors?: IActor[];
   genres?: IGenre[];
   directors?: IDirector[];
-  rating?: IRating;
+  rating?: IRating[];
   serie?: ISerie;
   movie?: IMovie;
 }
