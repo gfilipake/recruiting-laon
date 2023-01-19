@@ -134,7 +134,7 @@ export const Footer = () => {
         style={{ width: 32, height: 32 }}
         className={`d-flex pointer justify-content-center align-items-center border border-gray-400 rounded-circle ${
           index > 0 ? "ms-3" : ""
-        } cursor-pointer user-select-none px-0`}
+        } cursor-pointer user-select-none`}
         key={`social-icon-${index}`}
         href={href}
         onClick={(e) => usePreventDefault(e, () => window.open(href, "_blank"))}
@@ -155,7 +155,7 @@ export const Footer = () => {
       className="border-top border-gray-300 fixed-bottom bg-gray-100"
       style={{ height: "112px" }}
     >
-      <Container className="d-flex justify-content-between align-items-center h-100 px-0">
+      <Container className="d-flex justify-content-between align-items-center h-100">
         {renderLogo()}
         {renderNavLinks()}
         {renderRowSocialIcons()}

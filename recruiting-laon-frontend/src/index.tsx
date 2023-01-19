@@ -4,6 +4,11 @@ import "./App.scss";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from "features/home/routes/home";
+import { ErrorPage } from "components/error-page/error-page";
+import { Movies } from "features/media/routes/movies/routes/movies";
+import { MoviesSelected } from "features/media/routes/movies/routes/movies-selected";
+import { SeriesSelected } from "features/media/routes/series/routes/series-selected";
+import { Series } from "features/media/routes/series/routes/series";
 
 const router = createBrowserRouter([
   {
@@ -19,14 +24,37 @@ const router = createBrowserRouter([
         element: <></>,
       },
       {
-        path: "/movies",
+        path: "/register",
         element: <></>,
       },
       {
+        path: "/movies",
+        children: [
+          {
+            index: true,
+            element: <Movies />,
+          },
+          {
+            path: "/movies/:id",
+            element: <MoviesSelected />,
+          },
+        ],
+      },
+      {
         path: "/series",
-        element: <></>,
+        children: [
+          {
+            index: true,
+            element: <Series />,
+          },
+          {
+            path: "/series/:id",
+            element: <SeriesSelected />,
+          },
+        ],
       },
     ],
+    errorElement: <ErrorPage />,
   },
 ]);
 
