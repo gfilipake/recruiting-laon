@@ -75,7 +75,7 @@ export const MoviesSelected = () => {
   );
 
   const renderGenresTag = () => (
-    <Row className="justify-content-start px-0" style={{ marginTop: "12px" }}>
+    <Row className="justify-content-start pe-0" style={{ marginTop: "12px" }}>
       {selectedMediaMovie.genres!.map((item, index) => (
         <div
           style={{
@@ -87,7 +87,7 @@ export const MoviesSelected = () => {
           className="d-flex border border-gray-300"
           key={`genre-${item.id!}`}
         >
-          {item.name}
+          <span className="regular-16">{item.name}</span>
         </div>
       ))}
     </Row>
