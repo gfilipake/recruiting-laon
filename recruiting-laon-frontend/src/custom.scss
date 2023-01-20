@@ -86,17 +86,46 @@ $body-color: #ffffff;
   color: var(--bs-gray-500);
 }
 
-.carousel-slide {
-  .carousel-inner {
-    
-  }
-}
-
-.carousel-indicators,
-.carousel-indicators li {
-  cursor: default;
-  pointer-events: none;
-}
-
 /* import bootstrap to set changes */
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+.custom-form {
+  padding: 1.5rem;
+  height: 4.5rem;
+  background-color: transparent;
+  border-color: var(--bs-gray-300);
+  color: var(--bs-white);
+  font-size: 16px;
+  font-family: "Inter";
+  line-height: 24px;
+
+  &.is-valid {
+    border-color: var(--bs-feedback-success);
+    box-shadow: none;
+
+    &:focus {
+      box-shadow: none;
+      border-color: var(--bs-primary-default);
+    }
+  }
+
+  &.is-invalid {
+    border-color: var(--bs-feedback-negative);
+    box-shadow: none;
+
+    &:focus {
+      box-shadow: none;
+      border-color: var(--bs-primary-default);
+    }
+  }
+
+  &:focus {
+    border-color: var(--bs-primary-default);
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  ::placeholder {
+    color: var(--bs-gray-500);
+  }
+}

@@ -5,24 +5,26 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { getMovie } from "data/data-movies";
 import { useTimeCalculator } from "utils/use-time-calculator";
+import { useWindowWide } from "utils/use-window-wide";
+import { getMovie } from "data/data-movies";
 
 export const MoviesSelected = () => {
+  const windowWide = useWindowWide();
   const params = useParams();
 
   const [selectedMediaMovie] = useState<IMedia>(getMovie(Number(params.id!))!);
 
   const renderLeftSide = () => (
-    <Col className="px-0" style={{ maxWidth: "306px" }}>
+    <Col className="d-none d-md-block px-0" style={{ maxWidth: "306px" }}>
       <img
-        className="d-flex h-100 w-100 px-0 user-select-none"
+        className=" d-flex h-100 w-100 px-0 user-select-none"
         style={{ maxHeight: 448 }}
         src={selectedMediaMovie.poster_url}
       />
       <Button
         style={{ height: 56 }}
-        className="d-none d-lg-block mt-3 w-100 px-0 py-0 bg-white cursor-pointer"
+        className="mt-3 w-100 px-0 py-0 bg-white cursor-pointer"
         variant="primary"
         onClick={openTrailerUrl}
       >
@@ -36,7 +38,30 @@ export const MoviesSelected = () => {
   }
 
   const renderRightSide = () => (
-    <Col style={{ marginLeft: "6.375rem" }} className="ps-0">
+    <Col
+      style={
+        windowWide === "xs"
+          ? { position: "relative", paddingTop: "413px" }
+          : { marginLeft: "6.375rem" }
+      }
+      className={windowWide === "xs" ? "" : "ps-0"}
+    >
+      {windowWide === "xs" && (
+        <img
+          style={{
+            height: "413px",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            WebkitMaskImage:
+              "linear-gradient(0deg, rgba(31, 29, 47, 0) 0%, #1F1D2F 100%)",
+            maskImage:
+              "linear-gradient(0deg, rgba(31, 29, 47, 0) 0%, #1F1D2F 100%);",
+          }}
+          className="mx-0 px-0 w-100"
+          src={selectedMediaMovie.poster_url}
+        />
+      )}
       {renderMovieTopSection()}
       {renderSynopsisSection()}
       <Row style={{ marginTop: "2.5rem" }}>
@@ -130,7 +155,11 @@ export const MoviesSelected = () => {
         : "-";
 
     return (
-      <Col md={6} xs={12}>
+      <Col
+        style={windowWide === "xs" ? { marginTop: "2.5rem" } : {}}
+        md={6}
+        xs={12}
+      >
         {renderGenericBottomSection("Prêmios", formattedAwards)}
       </Col>
     );
@@ -160,7 +189,11 @@ export const MoviesSelected = () => {
         : "-";
 
     return (
-      <Col md={6} xs={12}>
+      <Col
+        style={windowWide === "xs" ? { marginTop: "2.5rem" } : {}}
+        md={6}
+        xs={12}
+      >
         {renderGenericBottomSection("Avaliações", formattedRatings)}
       </Col>
     );
@@ -185,7 +218,9 @@ export const MoviesSelected = () => {
   );
 
   return (
-    <Container style={{ marginTop: 56, marginBottom: 208 }}>
+    <Container
+      style={windowWide === "xs" ? {} : { marginTop: 56, marginBottom: 208 }}
+    >
       <Row>
         {renderLeftSide()}
         {renderRightSide()}

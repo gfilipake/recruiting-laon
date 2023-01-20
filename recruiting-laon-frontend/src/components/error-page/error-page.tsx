@@ -1,5 +1,3 @@
-import { Header } from "components/layout/header/header";
-import { Footer } from "components/layout/footer/footer";
 import Container from "react-bootstrap/esm/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -30,18 +28,10 @@ export const ErrorPage = () => {
   );
 
   return (
-    <div className="d-flex flex-column">
-      <Header />
-      <Container
-        style={{ zIndex: "-5", height: "378px" }}
-        fluid
-        className="position-absolute px-0 bg-gray-200 mb-5"
-      />
-      <Container className="d-flex flex-column align-items-center mt-5">
-        <h1>Erro 404!</h1>
-        <h2>Página indisponível!</h2>
-        {renderGoBackArrow()}
-      </Container>
-    </div>
+    <Container style={{ height: "100vh"}} className="d-flex flex-column justify-content-center align-items-center">
+      <h1>Ocorreu um erro!</h1>
+      <h2>Página indisponível!</h2>
+      {renderGoBackArrow()}
+    </Container>
   );
 };
