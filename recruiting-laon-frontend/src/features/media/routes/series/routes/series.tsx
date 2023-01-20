@@ -64,7 +64,7 @@ export const Series = () => {
   });
 
   return (
-    <Container style={{ paddingTop: 56, marginBottom: 208 }}>
+    <Container style={{ marginTop: 56, marginBottom: 208 }}>
       <h1 style={{ lineHeight: "48px" }} className="semibold-40 mb-0">
         Séries
       </h1>

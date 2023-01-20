@@ -4,21 +4,21 @@ import Nav from "react-bootstrap/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { IAuth } from "models/view/auth";
 
 interface IHeaderProps {
-  hasLogin?: boolean;
+  auth: IAuth | null;
 }
 
 export const Header = (props: IHeaderProps) => {
-  const { hasLogin = true } = props;
+  const { auth } = props;
   const { state } = useLocation();
   const navigate = useNavigate();
-  console.log(state);
 
   const renderHeaderWithLogin = () => (
     <>
       {(state?.goBackRoute as boolean) && renderGoBackArrow()}
-      {renderLogo()}
+      {!(state?.goBackRoute as boolean) && renderLogo()}
       {renderLoggedRightSide()}
     </>
   );
@@ -44,27 +44,33 @@ export const Header = (props: IHeaderProps) => {
     </Container>
   );
 
-  const renderLoggedRightSide = () => (
-    <Nav className="ml-auto flex-row">
-      <Nav.Item
-        style={{ width: 32, height: 32 }}
-        className="d-flex justify-content-center align-items-center border border-gray-400 rounded-circle cursor-pointer user-select-none"
-      >
-        <FontAwesomeIcon
-          color="white"
-          height={13.32}
-          width={13.32}
-          icon={faSearch}
-        />
-      </Nav.Item>
-      <Nav.Item
-        style={{ width: 32, height: 32 }}
-        className="d-flex justify-content-center align-items-center bg-gray-400 rounded-circle ms-4 cursor-pointer user-select-none"
-      >
-        <span>S</span>
-      </Nav.Item>
-    </Nav>
-  );
+  const renderLoggedRightSide = () => {
+    const userName = auth?.user?.name ?? "?";
+
+    return (
+      <Nav className="ml-auto flex-row">
+        <Nav.Item
+          style={{ width: 32, height: 32 }}
+          className="d-flex justify-content-center align-items-center border border-gray-400 rounded-circle cursor-pointer user-select-none"
+          onClick={() => navigate("/search", { state: { goBackRoute: true } })}
+        >
+          <FontAwesomeIcon
+            color="white"
+            height={13.32}
+            width={13.32}
+            icon={faSearch}
+          />
+        </Nav.Item>
+        <Nav.Item
+          style={{ width: 32, height: 32 }}
+          className="d-flex justify-content-center align-items-center bg-gray-400 rounded-circle ms-4 cursor-pointer user-select-none"
+          onClick={() => navigate("/profile", { state: { goBackRoute: true } })}
+        >
+          <span>{userName.slice(0, 1)}</span>
+        </Nav.Item>
+      </Nav>
+    );
+  };
 
   const renderLogo = () => (
     <Navbar.Brand className="cursor-pointer user-select-none mx-0 py-0 px-0">
@@ -74,7 +80,12 @@ export const Header = (props: IHeaderProps) => {
     </Navbar.Brand>
   );
 
-  const renderHeaderWithoutLogin = () => <></>;
+  const renderHeaderWithoutLogin = () => (
+    <>
+      {(state?.goBackRoute as boolean) && renderGoBackArrow()}
+      {renderLogo()}
+    </>
+  );
 
   return (
     <header style={{ height: "96px" }}>
@@ -84,7 +95,7 @@ export const Header = (props: IHeaderProps) => {
         expand="lg"
       >
         <Container className="justify-content-between">
-          {hasLogin ? renderHeaderWithLogin() : renderHeaderWithoutLogin()}
+          {auth !== null ? renderHeaderWithLogin() : renderHeaderWithoutLogin()}
         </Container>
       </Navbar>
     </header>

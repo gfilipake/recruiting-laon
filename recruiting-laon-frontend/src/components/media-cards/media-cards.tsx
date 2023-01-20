@@ -34,6 +34,7 @@ export const MediaCards = (props: IMediaCardsProps) => {
           >
             <Link
               className="h-100 w-100"
+              state={{ goBackRoute: true }}
               to={`${linkPrefix}${item[mediaType]!.id!}`}
             >
               <img className="h-100 w-100" src={item.poster_url} />

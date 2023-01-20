@@ -1,14 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./App.scss";
-import App from "./App";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { App } from "./App";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Home } from "features/home/routes/home";
 import { ErrorPage } from "components/error-page/error-page";
 import { Movies } from "features/media/routes/movies/routes/movies";
 import { MoviesSelected } from "features/media/routes/movies/routes/movies-selected";
 import { SeriesSelected } from "features/media/routes/series/routes/series-selected";
 import { Series } from "features/media/routes/series/routes/series";
+import { PrivateWrapper } from "components/private-route/private-route";
+import { Login } from "features/auth/routes/login";
+import { Register } from "features/auth/routes/register";
+import { UnderConstruction } from "features/under-construction/under-construction";
 
 const router = createBrowserRouter([
   {
@@ -16,27 +20,39 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        element: <Home />,
+        element: (
+          <PrivateWrapper>
+            <Home />
+          </PrivateWrapper>
+        ),
         index: true,
       },
       {
         path: "/login",
-        element: <></>,
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <></>,
+        element: <Register />,
       },
       {
         path: "/movies",
         children: [
           {
             index: true,
-            element: <Movies />,
+            element: (
+              <PrivateWrapper>
+                <Movies />
+              </PrivateWrapper>
+            ),
           },
           {
             path: "/movies/:id",
-            element: <MoviesSelected />,
+            element: (
+              <PrivateWrapper>
+                <MoviesSelected />
+              </PrivateWrapper>
+            ),
           },
         ],
       },
@@ -45,11 +61,84 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Series />,
+            element: (
+              <PrivateWrapper>
+                <Series />
+              </PrivateWrapper>
+            ),
           },
           {
             path: "/series/:id",
-            element: <SeriesSelected />,
+            element: (
+              <PrivateWrapper>
+                <SeriesSelected />
+              </PrivateWrapper>
+            ),
+          },
+        ],
+      },
+      {
+        path: "/search",
+        children: [
+          {
+            index: true,
+            element: (
+              <PrivateWrapper>
+                <UnderConstruction />
+              </PrivateWrapper>
+            ),
+          },
+        ],
+      },
+      {
+        path: "/terms",
+        children: [
+          {
+            index: true,
+            element: (
+              <PrivateWrapper>
+                <UnderConstruction />
+              </PrivateWrapper>
+            ),
+          },
+        ],
+      },
+      {
+        path: "/privacy",
+        children: [
+          {
+            index: true,
+            element: (
+              <PrivateWrapper>
+                <UnderConstruction />
+              </PrivateWrapper>
+            ),
+          },
+        ],
+      },
+      {
+        path: "/profile",
+        children: [
+          {
+            index: true,
+            element: (
+              <PrivateWrapper>
+                <UnderConstruction />
+              </PrivateWrapper>
+            ),
+          },
+        ],
+      },
+      {
+        path: "/help",
+        children: [
+          {
+            index: true,
+            element: (
+              <PrivateWrapper>
+                <UnderConstruction />
+              </PrivateWrapper>
+            ),
           },
         ],
       },
