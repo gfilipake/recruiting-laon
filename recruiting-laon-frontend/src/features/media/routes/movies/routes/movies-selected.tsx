@@ -22,7 +22,7 @@ export const MoviesSelected = () => {
       />
       <Button
         style={{ height: 56 }}
-        className="mt-3 w-100 px-0 py-0 bg-white cursor-pointer"
+        className="d-none d-lg-block mt-3 w-100 px-0 py-0 bg-white cursor-pointer"
         variant="primary"
         onClick={openTrailerUrl}
       >
@@ -38,6 +38,15 @@ export const MoviesSelected = () => {
   const renderRightSide = () => (
     <Col style={{ marginLeft: "6.375rem" }} className="ps-0">
       {renderMovieTopSection()}
+      {renderSynopsisSection()}
+      <Row style={{ marginTop: "2.5rem" }}>
+        {renderActorSection()}
+        {renderAwardsSection()}
+      </Row>
+      <Row style={{ marginTop: "2.5rem" }}>
+        {renderDirectorsSection()}
+        {renderRatingsSection()}
+      </Row>
     </Col>
   );
 
@@ -93,8 +102,90 @@ export const MoviesSelected = () => {
     </Row>
   );
 
+  const renderSynopsisSection = () => (
+    <Row style={{ marginTop: "4.5rem" }} className="mx-0">
+      {renderGenericBottomSection("Sinopse", selectedMediaMovie.synopsis!)}
+    </Row>
+  );
+
+  const renderActorSection = () => {
+    const actors = selectedMediaMovie.actors ?? [];
+    const formattedActors =
+      actors.length > 0
+        ? `${actors.map((item) => item.name).join(", ")} e outros.`
+        : "-";
+
+    return (
+      <Col md={6} xs={12}>
+        {renderGenericBottomSection("Elenco", formattedActors)}
+      </Col>
+    );
+  };
+
+  const renderAwardsSection = () => {
+    const awards = selectedMediaMovie.awards ?? [];
+    const formattedAwards =
+      awards.length > 0
+        ? `${awards.map((item) => item.name).join(", ")} e outros.`
+        : "-";
+
+    return (
+      <Col md={6} xs={12}>
+        {renderGenericBottomSection("Prêmios", formattedAwards)}
+      </Col>
+    );
+  };
+
+  const renderDirectorsSection = () => {
+    const directors = selectedMediaMovie.directors ?? [];
+    const formattedDirectors =
+      directors.length > 0
+        ? `${directors.map((item) => item.name).join(", ")}`
+        : "-";
+
+    return (
+      <Col md={6} xs={12}>
+        {renderGenericBottomSection("Diretor", formattedDirectors)}
+      </Col>
+    );
+  };
+
+  const renderRatingsSection = () => {
+    const ratings = selectedMediaMovie.ratings ?? [];
+    const formattedRatings =
+      ratings.length > 0
+        ? `${ratings
+            .map((item) => `${item.evalutoe!}: ${item.value!}`)
+            .join(", ")}`
+        : "-";
+
+    return (
+      <Col md={6} xs={12}>
+        {renderGenericBottomSection("Avaliações", formattedRatings)}
+      </Col>
+    );
+  };
+
+  const renderGenericBottomSection = (title: string, answer: string) => (
+    <>
+      <h2
+        style={{ lineHeight: "24px" }}
+        className="semibold-16 text-color-white px-0"
+      >
+        {title}
+      </h2>
+      <hr style={{ opacity: 1 }} className="border-gray-300 mt-0" />
+      <span
+        style={{ lineHeight: "24px" }}
+        className="regular-16 px-0 text-gray-500"
+      >
+        {answer ?? "-"}
+      </span>
+    </>
+  );
+
   return (
-    <Container style={{ paddingTop: 56, marginBottom: 208 }}>
+    <Container style={{ marginTop: 56, marginBottom: 208 }}>
       <Row>
         {renderLeftSide()}
         {renderRightSide()}

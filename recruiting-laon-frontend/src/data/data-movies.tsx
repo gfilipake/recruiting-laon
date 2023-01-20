@@ -34,7 +34,7 @@ export function getMovie(movieId: number): IMedia | undefined {
           name: "Jennifer Coolidge",
         },
       ],
-      award: [
+      awards: [
         {
           id: 1,
           name: "Oscar de Melhor Roteiro Original",
@@ -44,7 +44,8 @@ export function getMovie(movieId: number): IMedia | undefined {
           name: "Critics Choice Award de Melhor Atriz",
         },
       ],
-      rating: [{ id: 1, value: 7.5, evalutoe: "IMDb" }],
+      directors: [{ id: 1, name: "Emerald Fennell" }],
+      ratings: [{ id: 1, value: 7.5, evalutoe: "IMDb" }],
       movie: {
         id: 1,
         movie_ranking: 1,
