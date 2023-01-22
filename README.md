@@ -19,4 +19,4 @@
 [Challenge Instructions](https://github.com/LaonLabs/laon-labs-recruiting-test)
 
 ## Observation:
-This is the first project that I build with bootstrap.
+This is the first project that I built with bootstrap instead of just SASS.
