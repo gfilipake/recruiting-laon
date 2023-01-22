@@ -6,7 +6,7 @@
 
 ## Parts of the challenge made:
 - Database.
-- FrontEnd.
+- Front End.
 
 ## Languages / Frameworks / Libraries used:
 - MYSQL, Typescript, SCSS, HTML;
