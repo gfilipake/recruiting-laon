@@ -9,7 +9,7 @@
 - Front End.
 
 ## Languages / Frameworks / Libraries used:
-- MYSQL, Typescript, SASS, HTML;
+- MYSQL, Typescript, SASS;
 - React;
 - CRA (Create React App), React-Bootstrap, React-Router;
 
