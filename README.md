@@ -13,7 +13,7 @@
 - React;
 - React-Bootstrap;
 
-## This Challenge is based on :
+## Challenge Information:
 [Company - Laon Labs](https://laonlabs.com/)<br>
-[Design - Figma](https://www.figma.com/file/UNbd6QwutVcqiWoVEtBlCi/Recrutamento?node-id=2%3A9)<br>
+[Original Design - Figma](https://www.figma.com/file/UNbd6QwutVcqiWoVEtBlCi/Recrutamento?node-id=2%3A9)<br>
 [Challenge Instructions](https://github.com/LaonLabs/laon-labs-recruiting-test)
