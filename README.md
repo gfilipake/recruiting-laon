@@ -9,11 +9,14 @@
 - Front End.
 
 ## Languages / Frameworks / Libraries used:
-- MYSQL, Typescript, SCSS, HTML;
+- MYSQL, Typescript, SASS, HTML;
 - React;
-- React-Bootstrap;
+- CRA (Create React App), React-Bootstrap, React-Router;
 
 ## Challenge Information:
 [Company - Laon Labs](https://laonlabs.com/)<br>
 [Original Design - Figma](https://www.figma.com/file/UNbd6QwutVcqiWoVEtBlCi/Recrutamento?node-id=2%3A9)<br>
 [Challenge Instructions](https://github.com/LaonLabs/laon-labs-recruiting-test)
+
+## Observation:
+This is the first project that I build with bootstrap.
